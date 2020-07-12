@@ -11,3 +11,21 @@ body {
   justify-content: center;
   min-height: 100vh;
 }
+
+.container{ 
+  position: relative;
+}
+
+// .water-glass {
+
+// }
+
+.counter {  
+  top: 0;
+  position: absolute;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  text-align: center; 
+  font-size: 112px;
+}

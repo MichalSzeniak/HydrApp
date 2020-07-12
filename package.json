@@ -1,7 +1,7 @@
 {
-  "name": "webpack-starterkit",
+  "name": "wtf-webpack-starterkit",
   "version": "1.0.1",
-  "description": "Webpack starterkit",
+  "description": "WTF Webpack starterkit",
   "main": "index.js",
   "private": true,
   "scripts": {
