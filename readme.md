@@ -1,4 +1,4 @@
-![cover]()
+![cover](src/assets/img/og.png)
 ## Available scripts
 
 `npm run start` - runs development mode
