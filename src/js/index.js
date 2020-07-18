@@ -56,6 +56,11 @@ while (i--) {
 }
 
 
+for (let i=0; i<3; i++) {
+  console.log("siema eniu " + i)
+}
+
+
 
 const checkbox = document.querySelector(".checkbox");
 const check = document.querySelector(".check");
@@ -66,10 +71,13 @@ checkbox.addEventListener('click', ()=> {
     console.log("prawda");
     check.classList.add("checked");
     document.documentElement.style.setProperty('--text-color','white');
+    document.documentElement.style.setProperty('--background-color','black');
   }
 
   else {
     check.classList.remove("checked");
     document.documentElement.style.setProperty('--text-color','rgb(24, 24, 24)');
+    document.documentElement.style.setProperty('--background-color','#3767AD');
   }
 })
+
