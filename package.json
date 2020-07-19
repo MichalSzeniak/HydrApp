@@ -41,7 +41,8 @@
     "webpack-cli": "3.3.11",
     "webpack-dev-server": "3.11.0",
     "webpack-merge": "4.2.2",
-    "websocket-extensions": "^0.1.4"
+    "websocket-extensions": "^0.1.4",
+    "lodash": ">=4.17.19"
   },
   "dependencies": {
     "normalize.css": "^8.0.1"
