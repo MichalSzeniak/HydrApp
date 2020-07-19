@@ -12,6 +12,20 @@ const counter = document.querySelector('.counter--js');
 const addButton = document.querySelector('.add-glass--js');
 const removeButton = document.querySelector('.remove-glass--js');
 const key = new Date().toLocaleString().slice(0, 10);
+const listButton = document.querySelector('.list__button--js');
+const listContainer = document.querySelector('.list__container');
+const closeButton = document.querySelector('.close-button--js');
+const listHistory = document.querySelector('.list-history')
+
+listButton.addEventListener('click', () => {
+  // listContainer.classList.add('list__open');
+  listContainer.style.top = "0";
+});
+
+closeButton.addEventListener('click', () => {
+  // listContainer.classList.remove('list__open');
+  listContainer.style.top = "-100vh";
+});
 
 let counterValue = 0;
 
@@ -39,45 +53,35 @@ removeButton.addEventListener('click', () => {
   localStorage.setItem(key, counterValue);
 });
 
-const maslo = localStorage.getItem(key);
-console.log(maslo);
-
 // History of glasses
 
-const values = [];
 const keys = Object.keys(localStorage);
-let i = keys.length;
-while (i--) {
-  values.push({
-    data: keys[i],
-    value: localStorage.getItem(keys[i]),
-  });
-  console.log(values);
+for (let i = 0; i < keys.length; i++) {
+  const el = document.createElement("div");
+  el.className = "list__table"
+  el.innerHTML = `
+    <h3 class="list__table--data">${keys[i]}</h3>
+    <p class="list__table--value">${localStorage.getItem(keys[i])}</p>
+  `;
+  listHistory.append(el);
 }
 
+//black mode
+const checkbox = document.querySelector('.checkbox');
+const check = document.querySelector('.check');
 
-for (let i=0; i<3; i++) {
-  console.log("siema eniu " + i)
-}
-
-
-
-const checkbox = document.querySelector(".checkbox");
-const check = document.querySelector(".check");
-
-
-checkbox.addEventListener('click', ()=> {
+checkbox.addEventListener('click', () => {
   if (checkbox.checked == true) {
-    console.log("prawda");
-    check.classList.add("checked");
-    document.documentElement.style.setProperty('--text-color','white');
-    document.documentElement.style.setProperty('--background-color','black');
+    console.log('prawda');
+    check.classList.add('checked');
+    document.documentElement.style.setProperty('--text-color', 'white');
+    document.documentElement.style.setProperty('--background-color', 'black');
+  } else {
+    check.classList.remove('checked');
+    document.documentElement.style.setProperty(
+      '--text-color',
+      'rgb(24, 24, 24)',
+    );
+    document.documentElement.style.setProperty('--background-color', '#3767AD');
   }
-
-  else {
-    check.classList.remove("checked");
-    document.documentElement.style.setProperty('--text-color','rgb(24, 24, 24)');
-    document.documentElement.style.setProperty('--background-color','#3767AD');
-  }
-})
-
+});
