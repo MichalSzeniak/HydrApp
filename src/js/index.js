@@ -15,18 +15,32 @@ const key = new Date().toLocaleString().slice(0, 10);
 const listButton = document.querySelector('.list__button--js');
 const listContainer = document.querySelector('.list__container');
 const closeButton = document.querySelector('.close-button--js');
-const listHistory = document.querySelector('.list-history')
+const listHistory = document.querySelector('.list-history');
+// const settingsButton = document.querySelector('.settings__button--js');
+// const settingsContainer = document.querySelector('.settings__container');
+// const closeButton2 = document.querySelector('.close-button2--js');
 
 listButton.addEventListener('click', () => {
   // listContainer.classList.add('list__open');
   listContainer.style.top = "0";
 });
 
+
 closeButton.addEventListener('click', () => {
   // listContainer.classList.remove('list__open');
-  listContainer.style.top = "-100vh";
+  listContainer.style.top = "-1000vh";
 });
 
+// settingsButton.addEventListener('click', ()=> {
+//   settingsContainer.style.top = "0";
+// })
+
+// closeButton2.addEventListener('click', () => {
+//   settingsContainer.style.top = "-1000vh";
+// })
+
+
+  //  Counter 
 let counterValue = 0;
 
 const localStorageValue = localStorage.getItem(key);
@@ -56,6 +70,7 @@ removeButton.addEventListener('click', () => {
 // History of glasses
 
 const keys = Object.keys(localStorage);
+console.log(keys);
 for (let i = 0; i < keys.length; i++) {
   const el = document.createElement("div");
   el.className = "list__table"
@@ -63,7 +78,7 @@ for (let i = 0; i < keys.length; i++) {
     <h3 class="list__table--data">${keys[i]}</h3>
     <p class="list__table--value">${localStorage.getItem(keys[i])}</p>
   `;
-  listHistory.append(el);
+  listHistory.prepend(el);
 }
 
 //black mode
@@ -72,16 +87,15 @@ const check = document.querySelector('.check');
 
 checkbox.addEventListener('click', () => {
   if (checkbox.checked == true) {
-    console.log('prawda');
     check.classList.add('checked');
+    document.documentElement.style.setProperty('--background-color', '#313131');
+    document.documentElement.style.setProperty('--background-window', '#313131');
     document.documentElement.style.setProperty('--text-color', 'white');
-    document.documentElement.style.setProperty('--background-color', 'black');
   } else {
     check.classList.remove('checked');
-    document.documentElement.style.setProperty(
-      '--text-color',
-      'rgb(24, 24, 24)',
-    );
     document.documentElement.style.setProperty('--background-color', '#3767AD');
+    document.documentElement.style.setProperty('--background-window', 'white');
+    document.documentElement.style.setProperty('--text-color', '#181818');
   }
 });
+

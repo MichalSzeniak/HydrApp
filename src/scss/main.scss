@@ -2,17 +2,15 @@
 
 @import "_variables";
 @import "list.scss";
+@import "settings.scss";
 @import "modules/hello.scss";
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;900&display=swap');
 
 
 :root {
-  --text-color: rgb(24, 24, 24);
+  --text-color: #181818;
   --background-color: #3767AD;
-  --background-menu: #FFE45E;
-  --header-color: #09A5FC;
-  // --textarea-color: #ffee005d;
-  --textarea-color: #c7e4ff5d;
+  --background-window: white;
 }
 
 body {
@@ -107,6 +105,8 @@ body {
   background: none;
   cursor: pointer;
 }
+
+//darkmode
 
 .dark-mode {
   position: absolute;
